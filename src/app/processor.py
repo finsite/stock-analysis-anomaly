@@ -14,8 +14,7 @@ logger = setup_logger(__name__)
 
 
 def validate_input_message(message: dict[str, Any]) -> ValidatedMessage:
-    """
-    Validate the incoming raw message against the expected schema.
+    """Validate the incoming raw message against the expected schema.
 
     Parameters
     ----------
@@ -31,6 +30,7 @@ def validate_input_message(message: dict[str, Any]) -> ValidatedMessage:
     ------
     ValueError
         If the message is not properly structured.
+
     """
     logger.debug("🔍 Validating message schema...")
     if not validate_message_schema(message):
@@ -40,8 +40,7 @@ def validate_input_message(message: dict[str, Any]) -> ValidatedMessage:
 
 
 def detect_anomaly(message: ValidatedMessage) -> dict[str, Any]:
-    """
-    Detect anomaly from the validated input message.
+    """Detect anomaly from the validated input message.
 
     This function is a placeholder for statistical models or
     rule-based logic to determine if an anomaly occurred.
@@ -55,6 +54,7 @@ def detect_anomaly(message: ValidatedMessage) -> dict[str, Any]:
     -------
     dict[str, Any]
         Dictionary with anomaly detection result.
+
     """
     logger.debug("📉 Detecting anomaly for %s", message["symbol"])
 
@@ -71,8 +71,7 @@ def detect_anomaly(message: ValidatedMessage) -> dict[str, Any]:
 
 
 def process_message(raw_message: dict[str, Any]) -> ValidatedMessage:
-    """
-    Main entry point for processing a single message.
+    """Main entry point for processing a single message.
 
     Parameters
     ----------
@@ -83,6 +82,7 @@ def process_message(raw_message: dict[str, Any]) -> ValidatedMessage:
     -------
     ValidatedMessage
         Enriched and validated message ready for output.
+
     """
     logger.info("🚦 Processing new message...")
     validated = validate_input_message(raw_message)
